@@ -1,0 +1,13 @@
+.errorMessage {
+    background: #EF9A9A;
+    color: white;
+    border-radius: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+md-input {
+  width: 100%;
+}

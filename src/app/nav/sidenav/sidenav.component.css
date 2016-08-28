@@ -1,0 +1,30 @@
+md-sidenav-layout {
+    height: 100%;
+}
+
+md-sidenav {
+    width: 300px;
+    background-color: #303030 !important;
+}
+
+md-icon {
+    cursor: pointer;
+}
+
+.close-menu-icon {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 30px;
+}
+
+.nav-button {
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.add-bar-button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}

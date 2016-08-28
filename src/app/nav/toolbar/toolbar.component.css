@@ -1,0 +1,17 @@
+md-icon {
+    cursor: pointer;
+}
+
+.menu-icon {
+    margin-right: 16px;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.nav-brand {
+    margin-right: 16px;
+    font-size: 25px;
+    font-weight: 700;
+}

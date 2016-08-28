@@ -1,0 +1,20 @@
+/**
+ * Dash Sidenav Actions
+ */
+export const OPEN_DASH_SIDENAV = 'OPEN_DASH_SIDENAV';
+export const CLOSE_DASH_SIDENAV = 'CLOSE_DASH_SIDENAV';
+
+/**
+ * Add Bar Form Actions
+ */
+export const ADD_BAR_FORM_VALUE_CHANGE = 'ADD_BAR_FORM_VALUE_CHANGE';
+export const ADD_BAR_FORM_UNFOCUS = 'ADD_BAR_FORM_UNFOCUS'; 
+export const ADD_BAR_FORM_WAITING_FOR_RESPONSE = 'ADD_BAR_FORM_WAITING_FOR_RESPONSE';
+export const ADD_BAR_FORM_RESPONSE_RECEIVED = 'ADD_BAR_FORM_RESPONSE_RECEIVED';
+
+/**
+ * Bar List Actions
+ */
+export const BAR_LIST_UPDATE = 'BAR_LIST_UPDATE';
+export const BAR_LIST_ADD = 'BAR_LIST_ADD';
+export const BAR_LIST_REMOVE = 'BAR_LIST_REMOVE';

@@ -33,5 +33,6 @@ deploy:
   bucket: bark-vendor
   local-dir: dist
   acl: public_read
+  skip_cleanup: true
   on:
     repo: kevinaud/bark-vendor-client

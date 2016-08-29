@@ -2,25 +2,36 @@ sudo: required
 dist: trusty
 language: node_js
 node_js:
-  - '4.2'
-
-addons:
+- '4.2'
+addons: 
 apt:
   sources:
-    - google-chrome
+  - google-chrome
   packages:
-    - google-chrome-stable
-    - google-chrome-beta
-
+  - google-chrome-stable
+  - google-chrome-beta
 before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-
+- export CHROME_BIN=chromium-browser
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 before_script:
 - npm install -g angular-cli
 - npm install -g karma
 - npm install
 - ng build
-
 script: karma start config/karma.conf.js --single-run
+
+before_deploy:
+- rm -r dist
+- ng build --prod
+
+deploy:
+  provider: s3
+  access_key_id: AKIAIVXQ4NIGQI2JNJHA
+  secret_access_key:
+    secure: c6aYLRXC3mF+vzxpxqjF8dEtdTQ44b6KmimLstS1gnvKHyoa8mAjVJaz9wmAyhZId5p3Rwzvh5nT3IiPebGCcgdlW8/d7fItzIlUYm1ExS/A/Ud9qvwkbvtfseCPknxn/dfKPWto3+iFcwCweBeZ+xF4sV9GB2oTpaqZa52XtWgcZh0FRKDPrY4BoYK2j++KCHqe0cgtmcFNnf9m+aMV/4qAxYBD0UyWjxOrhmcASS/HgClTy8eRX7WvJSxBIh0uI+SaQlEN4xIBJmXfk94ouVkZ2b0X+LGzTBLZh2NaFDd94NIVnjn1vGrZ7Y2DsNsSGZJght+R0+6lxgSox7Whpxy3wIUSYmKunKzSDk3AUOqkJy5zfHhycdoAgLh5ghKDwHsYHWlRAFi4KWrvBO6K60RxHhj+Mlu0zJqdzCRzs/n0weBKFcDOVtmAOO6AIgBwmPMEsCIjWB3ERDGtzaIfHgfTNpzEYKj19CAdPydpZvR7P0Sll8eNRFg5Agh8iyoh5nDT13B4ERkuTvrbxDXjvh7GOha4cYUjlcnM4XWP1Kr5Ug8CrjP0v9u518pAxvUY4m8x4EGv3C6kgvjU73ySmpe9P0EPn0Kq98NveDu/1Kqo6ozoIc8S4Km5WOUzc9dzbsbZ0bk/dzp4OjG/9HmpoF2RRrd216iLLef7ghtqtSc=
+  bucket: bark-vendor
+  local-dir: dist
+  acl: public_read
+  on:
+    repo: kevinaud/bark-vendor-client
